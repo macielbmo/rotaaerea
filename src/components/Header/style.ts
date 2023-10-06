@@ -15,12 +15,18 @@ export const Container = styled.header`
     width: 100%;
     height: 72px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
     border-bottom: 1px solid ${({theme}) => theme.colors.primary.dark};
     padding: 0 5px;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: " burger logo nav";
+    gap: 1rem
+  }
+
+  .menu, .title, .newsletter {
+    display: flex;
+    align-items: center;
   }
 
   .menu {
@@ -34,8 +40,7 @@ export const Container = styled.header`
   }
 
   .newsletter {
-    display: flex;
-    align-items: center;
+    justify-content: flex-end;
     gap: 5px;
 
     font-size: 14px;
@@ -67,5 +72,11 @@ export const Container = styled.header`
 
   .list li:hover {
     color: ${({theme}) => theme.colors.primary.light};
+  }
+
+  @media (max-width: 760px) {
+    .newsletter {
+      display: none;
+    }
   }
 `
