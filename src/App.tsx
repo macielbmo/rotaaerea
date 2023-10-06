@@ -1,3 +1,5 @@
+import { RouterProvider } from 'react-router-dom'
+import { router } from './Router'
 
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './assets/styles/global'
@@ -8,7 +10,7 @@ function App() {
   return (
     <ThemeProvider theme={_default}>
       <GlobalStyles />
-      <h1>Rota Aérea</h1>
+      <RouterProvider router={router}/>
     </ThemeProvider>
   )
 }
