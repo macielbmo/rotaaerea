@@ -1,16 +1,25 @@
+import { useState } from 'react'
+
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { AiFillBell } from 'react-icons/ai'
 
 import { Container } from './style'
 import { Main } from '../../assets/styles/global'
+import Sidebar from './Sidebar'
 
 export default function Header() {
+  const [openSidebar, setOpenSideber] = useState(false)
+
+  function handleSidebar() {
+    setOpenSideber(!openSidebar)
+  }
+
   return(
     <Container>
       <Main className='main'>
         <div className='content-menu'>
           <div className='menu'>
-            <GiHamburgerMenu />
+            <span onClick={handleSidebar}><GiHamburgerMenu /></span>
           </div>
 
           <div className='title'>
@@ -33,6 +42,10 @@ export default function Header() {
           </ul>
         </nav>
       </Main>
+
+      {openSidebar && (
+          <Sidebar handleSidebar={handleSidebar}/>
+        )}
     </Container>
   )
 }
