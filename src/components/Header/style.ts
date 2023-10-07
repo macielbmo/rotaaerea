@@ -78,5 +78,9 @@ export const Container = styled.header`
     .newsletter {
       display: none;
     }
+
+    .content-nav {
+      display: none;
+    }
   }
 `

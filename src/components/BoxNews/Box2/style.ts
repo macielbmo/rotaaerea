@@ -33,7 +33,7 @@ export const Container = styled.div`
     padding: 5px 0 5px 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     word-wrap: break-word;
   }
 
@@ -42,6 +42,7 @@ export const Container = styled.div`
 
     font-weight: 300;
     font-size: 14px;
+    text-transform: uppercase;
     color: ${({ theme }) => theme.colors.primary.main};
   }
 
@@ -63,5 +64,40 @@ export const Container = styled.div`
 
   @media (max-width: 1024px) {
     width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 22px;
+    }
+  }
+
+  @media (max-width: 414px) {
+    display: block;
+
+    .box-img {
+      aspect-ratio: 16 / 9;
+    }
+
+    img {
+      height: 100%;
+    }
+
+    .content {
+      max-width: 100%;
+      padding: 10px 5px 0;
+    }
+
+    .title {
+      font-size: 20px;
+    }
+
+    .box-img {
+      max-width: 100%;
+    }
+
+    .author, .category {
+      font-size: 12px;
+    }
   }
 `

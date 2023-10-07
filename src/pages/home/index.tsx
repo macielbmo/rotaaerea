@@ -24,6 +24,10 @@ export default function Home() {
             </article>
 
             <article className="grid-content">
+              <div>
+                <h1>Mais Recentes</h1>
+              </div>
+
               <Box2
                 img="https://aeroin.net/wp-content/uploads/2023/05/ITA-Instituto-Tecnologico-de-Aeronautica-23051701-696x464.jpg"
                 title="Ministérios da Educação e da Defesa apresentam relatório de viabilidade para unidade do ITA no Ceará"
