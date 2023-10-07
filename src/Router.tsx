@@ -3,6 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/home";
 import Layout from "./components/Layout";
 import News from "./pages/news";
+import Category from "./pages/category";
+import Tag from "./pages/tag";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
       {
         path: '/news/:id',
         element: <News />
+      },
+      {
+        path: 'category/:id',
+        element: <Category />
+      },
+      {
+        path: 'tag/:id',
+        element: <Tag />
       }
     ]
   }

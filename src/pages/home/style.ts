@@ -14,6 +14,7 @@ export const Container = styled.div`
 
   .grid-content {
     margin-top: 45px;
+    width: 65%;
   }
 
   @media (max-width: 760px) {
