@@ -42,7 +42,7 @@ export const Container = styled.div`
     width: max-content;
     padding: 3px 7px;
     border-radius: 5px;
-    background-color: ${({theme}) => theme.colors.primary.main};
+    background-color: ${({theme}) => theme.navigationColors['nav-bar-background-color']};
   }
 
   .content h1 {

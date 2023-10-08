@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.header`
   width: 100%;
-  background-color: ${({theme}) => theme.colors.backgroundColor};
+  background-color: ${({theme}) => theme.headerColors['nav-bar-background-color']};
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 
   .main {
@@ -15,7 +15,7 @@ export const Container = styled.header`
     width: 100%;
     height: 72px;
 
-    border-bottom: 1px solid ${({theme}) => theme.colors.primary.dark};
+    border-bottom: 1px solid ${({theme}) => theme.headerColors['nav-bar-text-color']};
     padding: 0 5px;
 
     display: grid;
@@ -31,12 +31,13 @@ export const Container = styled.header`
 
   .menu {
     font-size: 24px;
+    color: ${({theme}) => theme.headerColors['nav-bar-text-color']};
     cursor: pointer;
   }
 
   .title a {
     text-decoration: none;
-    color: ${({theme}) => theme.colors.primary.dark};
+    color: ${({theme}) => theme.headerColors['nav-bar-text-color']};
   }
 
   .newsletter {
@@ -45,6 +46,7 @@ export const Container = styled.header`
 
     font-size: 14px;
     font-weight: 600;
+    color: ${({theme}) => theme.headerColors['nav-bar-text-color']};
 
     cursor: pointer;
   }
@@ -66,12 +68,13 @@ export const Container = styled.header`
   }
 
   .list li{
+    color: ${({theme}) => theme.headerColors['nav-bar-text-color']};
     cursor: pointer;
     transition: .3s;
   }
 
   .list li:hover {
-    color: ${({theme}) => theme.colors.primary.light};
+    color: ${({theme}) => theme.headerColors['nav-bar-text-second-color']};
   }
 
   @media (max-width: 760px) {

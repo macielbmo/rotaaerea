@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   .title-tag {
     height: 128px;
-    background-color: ${({ theme }) => theme.colors.primary.dark};
+    background-color: ${({ theme }) => theme.categoryColors["primary-background-color"]};
 
     display: flex;
     align-items: center;
@@ -13,7 +13,7 @@ export const Container = styled.div`
   .title-tag h1 {
     text-transform: uppercase;
     font-size: 28px;
-    color: ${({ theme }) => theme.colors.primary.lighter};
+    color: ${({ theme }) => theme.categoryColors["primary-text-color"]};
   }
 
   .grid-content {
@@ -23,6 +23,6 @@ export const Container = styled.div`
 
   .title-grid h1 {
     font-size: 28px;
-    color: ${({ theme }) => theme.colors.primary.dark};
+    color: ${({ theme }) => theme.categoryColors["secondary-text-color"]};
   }
 `

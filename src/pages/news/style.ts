@@ -25,8 +25,8 @@ export const Container = styled.div`
     text-transform: uppercase;
     font-size: 12px;
 
-    color: ${({ theme }) => theme.colors.primary.lighter};
-    background-color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => theme.newsColors["primary-text-color"]};
+    background-color: ${({ theme }) => theme.newsColors["primary-background-color"]};
   }
 
   .title {
@@ -43,7 +43,7 @@ export const Container = styled.div`
 
   .author strong {
     cursor: pointer;
-    color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => theme.newsColors["third-text-color"]};
   }
 
   .image {
@@ -55,7 +55,7 @@ export const Container = styled.div`
     max-width: 60%;
     font-size: 16px;
     line-height: 1.6;
-    color: #333;
+    color: ${({ theme }) => theme.newsColors["news-text-color"]};
   }
 
   @media (max-width: 1240px) {

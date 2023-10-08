@@ -1,8 +1,11 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { ThemeContext } from '../../../contexts/ThemeContext';
 
 import { AiOutlineMail } from "react-icons/ai";
 import { GrClose, GrSearch } from 'react-icons/gr'
 import { Search } from '../Search';
+
+import Switch from 'react-switch'
 
 import { Container } from "./style";
 import Item from './Item';
@@ -13,6 +16,7 @@ interface SidebarProps {
 
 export default function Sidebar({ handleSidebar }: SidebarProps) {
   const [search, setSearch] = useState(false)
+  const { handleTheme, checked } = useContext(ThemeContext)
 
   function handleSearch() {
     setSearch(!search)
@@ -52,6 +56,21 @@ export default function Sidebar({ handleSidebar }: SidebarProps) {
             list={[]}
           />
         </ul>
+
+        <div className='theme'>
+          <span>Tema</span>
+          <Switch
+            onChange={() => handleTheme()}
+            checked={checked}
+            checkedIcon={false}
+            uncheckedIcon={false}
+            height={10}
+            width={40}
+            handleDiameter={20}
+            offColor='#333'
+            onColor='#3366FF'
+          />
+        </div>
 
         <div className='newsletter'>
           <AiOutlineMail className='icon'/>

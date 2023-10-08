@@ -6,13 +6,14 @@ export const Container = styled.div`
   .menu {
     display: flex;
     justify-content: space-between;
+    color: ${({ theme }) => theme.sidebarColors["nav-bar-text-color"]}
   }
 
   .title {
     font-size: 18px;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 1px
+    letter-spacing: 1px;
   }
 
   .icon {
@@ -21,8 +22,8 @@ export const Container = styled.div`
     transition: all .3s;
   }
 
-  .icon:hover {
-    color: ${({ theme }) => theme.colors.primary.main}
+  .menu:hover {
+    color: ${({ theme }) => theme.sidebarColors["nav-bar-text-second-color"]}
   }
 
   .list {
@@ -34,7 +35,7 @@ export const Container = styled.div`
   .item {
     list-style: none;
     font-size: 14px;
-    color: ${({ theme }) => theme.colors.primary.main};
+    color: ${({ theme }) => theme.sidebarColors["nav-bar-text-color"]};
   }
 
   .item:first-child {

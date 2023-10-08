@@ -8,7 +8,7 @@ export const Container = styled.div`
   width: 420px;
   height: 100vh;
   padding: 48px;
-  background-color: ${({ theme }) => theme.colors.backgroundColor};
+  background-color: ${({ theme }) => theme.sidebarColors["nav-bar-background-color"]};
   box-shadow: 35px 0px 75px rgba(0, 0, 0, 0.5);
 
   .top-sidebar {
@@ -18,7 +18,13 @@ export const Container = styled.div`
 
   .icon {
     font-size: 24px;
+    color: ${({ theme }) => theme.sidebarColors["nav-bar-text-color"]};
+
     cursor: pointer;
+  }
+
+  .icon:hover {
+    color: ${({ theme }) => theme.sidebarColors["nav-bar-text-second-color"]}
   }
 
   .content ul {
@@ -29,13 +35,26 @@ export const Container = styled.div`
     margin-top: 45px;
   }
 
+  .theme {
+    display: flex;
+    align-items: center;
+
+    margin-top: 35px;
+    gap: 25px;
+
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
   .newsletter {
     margin-top: 90px;
 
     display: flex;
     justify-content: flex-start;
     gap: 15px;
-    color: ${({ theme }) => theme.colors.primary.dark};
+    color: ${({ theme }) => theme.sidebarColors["nav-bar-text-color"]};
   }
 
   .newsletter .icon {
