@@ -22,5 +22,9 @@ export const Container = styled.div`
       flex-direction: column;
       max-height: 720px;
     }
+
+    .grid-content {
+      width: 100%;
+    }
   }
 `

@@ -16,7 +16,7 @@ export const Container = styled.header`
     height: 72px;
 
     border-bottom: 1px solid ${({theme}) => theme.headerColors['nav-bar-text-color']};
-    padding: 0 5px;
+    padding: 0 15px;
 
     display: grid;
     grid-template-columns: 1fr auto 1fr;

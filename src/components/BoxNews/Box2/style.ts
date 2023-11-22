@@ -9,6 +9,7 @@ export const Container = styled.div`
   margin-top: 25px;
   padding-bottom: 25px;
   border-bottom: 1px solid ${({ theme }) => theme.primaryColors['primary-text-color']};
+  color: ${({ theme }) => theme.primaryColors['primary-text-color']};
 
   .box-img {
     max-width: 30%;
