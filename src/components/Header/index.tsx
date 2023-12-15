@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { AiFillBell } from 'react-icons/ai'
@@ -13,6 +14,29 @@ export default function Header() {
   function handleSidebar() {
     setOpenSideber(!openSidebar)
   }
+
+  const listCategory = [
+    {
+      "id": "1",
+      "name": "Notícia"
+    },
+    {
+      "id": "2",
+      "name": "Companhias Aéreas"
+    },
+    {
+      "id": "3",
+      "name": "Aeroportos"
+    },
+    {
+      "id": "4",
+      "name": "Industria"
+    },
+    {
+      "id": "5",
+      "name": "Militar"
+    }
+  ]
 
   return(
     <Container>
@@ -34,11 +58,11 @@ export default function Header() {
 
         <nav className='content-nav'>
           <ul className='list'>
-            <li>Notícias</li>
-            <li>Companhias Aéreas</li>
-            <li>Aeroportos</li>
-            <li>Industria</li>
-            <li>Militar</li>
+            {listCategory.map((item) => (
+              <Link to={`category/${item.name}`}>
+                <li>{item.name}</li>
+              </Link>
+            ))}
           </ul>
         </nav>
       </Main>
