@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-
 import { Main } from "../../assets/styles/global";
 import Box1 from "../../components/BoxNews/Box1";
 import Box2 from "../../components/BoxNews/Box2";

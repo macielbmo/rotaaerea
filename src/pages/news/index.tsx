@@ -1,11 +1,9 @@
-import { useState, useEffect, ReactHTMLElement } from 'react'
 import { useParams } from 'react-router-dom'
 
 import Share from "../../components/Share"
 import { Container } from "./style"
 
 import dbNews from '../../services/news.json'
-import Item from '../../components/Header/Sidebar/Item'
 
 export default function News() {
   const { id } = useParams();
