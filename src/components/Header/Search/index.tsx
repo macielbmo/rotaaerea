@@ -12,6 +12,7 @@ export function Search({ heandleSearch }: SearchProps) {
       <AiOutlineClose
         onClick={heandleSearch}
         size={48}
+        color={'white'}
         className='icon'
       />
 

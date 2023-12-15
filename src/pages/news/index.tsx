@@ -4,44 +4,29 @@ import { useParams } from 'react-router-dom'
 import Share from "../../components/Share"
 import { Container } from "./style"
 
-export default function News() {
-  const [news, setNews] = useState()
+import dbNews from '../../services/news.json'
+import Item from '../../components/Header/Sidebar/Item'
 
+export default function News() {
   const { id } = useParams();
 
-  useEffect(() => {
-    const fetchData = async (): Promise<void> => {
-      try {
-        const response = await fetch(`http://localhost:3001/news/${id}`)
-        if (!response.ok) {
-          throw new Error('Erro ao buscar os dados da notícia')
-        }
-
-        const news = await response.json()
-        setNews(news)
-        console.log(news)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-    fetchData()
-  }, [id])
+  const news = dbNews.news.find(item => item.id == id)
 
   return(
     <Container>
       {news ? (
         <>
           <section className="header">
-            <span className="catogory">{news.category_news_name}</span>
+            <span className="catogory">{news.category}</span>
 
             <h1 className="title">{news.title}</h1>
 
             <p className="sub-title">{news.subtitle}</p>
 
-            <span className="author">Por <strong> {news.author} </strong> {news.updated_at}</span>
+            <span className="author">Por <strong> {news.author} </strong> {news.date}</span>
           </section>
 
-          <img className="image" src={news.url_image} alt={news.image_description} />
+          <img className="image" src={news.img} alt={""} />
 
           <section className="main">
             <div dangerouslySetInnerHTML={{ __html: news.content }} />

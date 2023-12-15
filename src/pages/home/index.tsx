@@ -6,38 +6,25 @@ import Box1 from "../../components/BoxNews/Box1";
 import Box2 from "../../components/BoxNews/Box2";
 import { Container } from "./style";
 
+import dbNews from '../../services/news.json';
+
 export default function Home() {
-  const [newsData, setNewsData] = useState([])
-  const [newsDestaque, setNewsDestaque] = useState([])
-
-  useEffect(() => {
-    fetch(`http://localhost:3001/news`, {
-      method: 'GET'
-    })
-      .then(async (response) => {
-        const json = await response.json()
-
-        setNewsData(json.filter((_, index) => index >= 2))
-        setNewsDestaque(json.slice(0, 2));
-      })
-      .catch((error) => {
-        console.log('erro', error)
-      })
-  }, [])
+    const firstNews = dbNews.news.slice(0,2);
+    const moreNews = dbNews.news.slice(2);
 
     return(
         <Main>
           <Container>
             <article className="article-header">
 
-              {newsDestaque.map((item) => (
+              {firstNews.map((item) => (
                   <Box1
                     key={item.id}
                     id={item.id}
-                    img={item.url_image}
+                    img={item.img}
                     title={item.title}
-                    category={item.category_news_name}
-                    date={item.update_at}
+                    category={item.category}
+                    date={item.date}
                     author={item.author}
                   />
               ))}
@@ -48,14 +35,14 @@ export default function Home() {
                 <h1>Mais Recentes</h1>
               </div>
 
-              {newsData.map((item) => (
+              {moreNews.map((item) => (
                 <Box2
                   key={item.id}
                   id={item.id}
-                  img={item.url_image}
+                  img={item.img}
                   title={item.title}
-                  category={item.category_news_name}
-                  date={item.update_at}
+                  category={item.category}
+                  date={item.date}
                   author={item.author}
                 />
               ))}
