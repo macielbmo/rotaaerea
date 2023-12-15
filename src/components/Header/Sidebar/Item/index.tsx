@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { AiOutlinePlus } from "react-icons/ai";
 
@@ -31,7 +32,9 @@ export default function Item({name, list}: ItemProps) {
       <li className='list'>
         {dropdown && (
           list.map((name, index) => (
-            <a className='item' key={index}> {name} </a>
+            <Link to={`tag/${name}`}>
+              <a className='item' key={index}> {name} </a>
+            </Link>
           ))
         )}
       </li>

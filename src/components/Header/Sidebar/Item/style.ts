@@ -36,6 +36,11 @@ export const Container = styled.div`
     list-style: none;
     font-size: 14px;
     color: ${({ theme }) => theme.sidebarColors["nav-bar-text-color"]};
+    cursor: pointer;
+  }
+
+  .item:hover {
+    color: ${({ theme }) => theme.sidebarColors["nav-bar-text-second-color"]}
   }
 
   .item:first-child {

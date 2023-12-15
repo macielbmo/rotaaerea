@@ -25,4 +25,8 @@ export const Container = styled.div`
     font-size: 28px;
     color: ${({ theme }) => theme.categoryColors["secondary-text-color"]};
   }
+
+  .title-grid h3 {
+    font-weight: 300;
+  }
 `
