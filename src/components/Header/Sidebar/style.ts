@@ -7,6 +7,8 @@ export const Container = styled.div`
 
   width: 420px;
   height: 100vh;
+  overflow-y: auto;
+
   padding: 48px;
   background-color: ${({ theme }) => theme.sidebarColors["nav-bar-background-color"]};
   box-shadow: 35px 0px 75px rgba(0, 0, 0, 0.5);
