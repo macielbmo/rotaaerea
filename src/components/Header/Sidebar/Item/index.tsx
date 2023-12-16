@@ -34,7 +34,7 @@ export default function Item({name, list, handleSidebar}: ItemProps) {
         {dropdown && (
           list.map((name, index) => (
             <Link to={`tag/${name}`}>
-              <a className='item' key={index} onClick={handleSidebar}> {name} </a>
+              <a className='item' key={index} onClick={() => handleSidebar()}> {name} </a>
             </Link>
           ))
         )}
