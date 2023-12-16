@@ -7,10 +7,11 @@ import { Container } from "./style";
 
 interface ItemProps {
   name: string,
-  list: string[]
+  list: string[],
+  handleSidebar: () => void
 }
 
-export default function Item({name, list}: ItemProps) {
+export default function Item({name, list, handleSidebar}: ItemProps) {
   const [dropdown, setDropdown] = useState(false)
 
   function handleDropdown() {
@@ -33,7 +34,7 @@ export default function Item({name, list}: ItemProps) {
         {dropdown && (
           list.map((name, index) => (
             <Link to={`tag/${name}`}>
-              <a className='item' key={index}> {name} </a>
+              <a className='item' key={index} onClick={handleSidebar()}> {name} </a>
             </Link>
           ))
         )}

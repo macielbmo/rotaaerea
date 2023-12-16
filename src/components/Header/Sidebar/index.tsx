@@ -34,26 +34,31 @@ export default function Sidebar({ handleSidebar }: SidebarProps) {
           <Item
             name='Companhias Aéreas'
             list={["Azul", "Latam", "Gol", "Avianca", "VoePass"]}
+            handleSidebar={() => handleSidebar}
           />
 
           <Item
             name='Aeroportos'
             list={["Guarulhos", "Congonhas", "Santos Dumont"]}
+            handleSidebar={() => handleSidebar}
           />
 
           <Item
             name='Industria'
             list={["Airbus", "Boing", "Embraer"]}
+            handleSidebar={() => handleSidebar}
           />
 
           <Item
             name='Militar'
             list={[]}
+            handleSidebar={() => handleSidebar}
           />
 
           <Item
             name='Aviação Privada'
             list={[]}
+            handleSidebar={() => handleSidebar}
           />
         </ul>
 

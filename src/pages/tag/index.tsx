@@ -37,10 +37,10 @@ export default function Tag() {
       <Main>
         <article className="grid-content">
               <div className="title-grid">
-                {news && news?.length < 0 ? (
-                  <h1>Mais Recentes</h1>
-                ) : (
+                {news && news?.length < 1 ? (
                   <h3>Não há noticias referentes a essa tag...</h3>
+                ) : (
+                  <h1>Mais Recentes</h1>
                 )}
               </div>
 
