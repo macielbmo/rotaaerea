@@ -14,6 +14,7 @@ export const Container = styled.div`
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: ${({ theme }) => theme.sidebarColors["nav-bar-text-color"]};
   }
 
   .icon {
@@ -22,7 +23,7 @@ export const Container = styled.div`
     transition: all .3s;
   }
 
-  .menu:hover {
+  .menu:hover, .title:hover {
     color: ${({ theme }) => theme.sidebarColors["nav-bar-text-second-color"]}
   }
 

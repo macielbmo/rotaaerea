@@ -40,7 +40,11 @@ export default function Category() {
       <Main>
         <article className="grid-content">
               <div className="title-grid">
-                <h1>Mais Recentes</h1>
+                {news && news?.length < 1 ? (
+                  <p>Não há noticias relacionadas a tag <strong>{id}</strong>...</p>
+                ) : (
+                  <h1>Mais Recentes</h1>
+                )}
               </div>
 
               {news && news.map((item) => (

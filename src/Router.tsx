@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import News from "./pages/news";
 import Category from "./pages/category";
 import Tag from "./pages/tag";
+import { Newsletter } from "./pages/newsletter";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: 'tag/:id',
         element: <Tag />
+      },
+      {
+        path: 'newsletter',
+        element: <Newsletter/>
       }
     ]
   }

@@ -50,10 +50,12 @@ export default function Header() {
             <a href="/"><h1>Rota Aérea</h1></a>
           </div>
 
-          <div className='newsletter'>
-            <AiFillBell />
-            <span>Boletim de Notícias</span>
-          </div>
+          <Link to={`newsletter`} className='link'>
+            <div className='newsletter'>
+              <AiFillBell />
+              <span>Boletim de Notícias</span>
+            </div>
+          </Link>
         </div>
 
         <nav className='content-nav'>

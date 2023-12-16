@@ -51,6 +51,11 @@ export const Container = styled.header`
     cursor: pointer;
   }
 
+  .link {
+    display: flex;
+    justify-content: end;
+  }
+
   .content-nav {
     width: 100%;
     height: 47px;

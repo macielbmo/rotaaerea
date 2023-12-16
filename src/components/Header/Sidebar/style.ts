@@ -57,6 +57,11 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.sidebarColors["nav-bar-text-color"]};
   }
 
+  .link {
+    display: flex;
+    justify-content: flex-start;
+  }
+
   .newsletter .icon {
     font-size: 24px;
   }

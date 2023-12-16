@@ -12,7 +12,7 @@ interface BoxProps {
 
 export default function Box2(props: BoxProps) {
   return(
-    <Link to={`news/${props.id}`}>
+    <Link to={`/news/${props.id}`}>
       <Container>
           <div className="box-img">
             <img src={props.img} alt={props.title} />

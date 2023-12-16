@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react'
 import { ThemeContext } from '../../../contexts/ThemeContext';
+import { Link } from 'react-router-dom';
 
 import { AiOutlineMail } from "react-icons/ai";
 import { GrClose, GrSearch } from 'react-icons/gr'
@@ -34,31 +35,31 @@ export default function Sidebar({ handleSidebar }: SidebarProps) {
           <Item
             name='Companhias Aéreas'
             list={["Azul", "Latam", "Gol", "Avianca", "VoePass"]}
-            handleSidebar={() => handleSidebar}
+            handleSidebar={handleSidebar}
           />
 
           <Item
             name='Aeroportos'
             list={["Guarulhos", "Congonhas", "Santos Dumont"]}
-            handleSidebar={() => handleSidebar}
+            handleSidebar={handleSidebar}
           />
 
           <Item
             name='Industria'
             list={["Airbus", "Boing", "Embraer"]}
-            handleSidebar={() => handleSidebar}
+            handleSidebar={handleSidebar}
           />
 
           <Item
             name='Militar'
             list={[]}
-            handleSidebar={() => handleSidebar}
+            handleSidebar={handleSidebar}
           />
 
           <Item
             name='Aviação Privada'
             list={[]}
-            handleSidebar={() => handleSidebar}
+            handleSidebar={handleSidebar}
           />
         </ul>
 
@@ -77,10 +78,12 @@ export default function Sidebar({ handleSidebar }: SidebarProps) {
           />
         </div>
 
-        <div className='newsletter'>
-          <AiOutlineMail className='icon'/>
-          <span>Boletim de Notícias</span>
-        </div>
+        <Link to={`newsletter`} onClick={() => handleSidebar()} className='link'>
+          <div className='newsletter'>
+            <AiOutlineMail className='icon'/>
+            <span>Boletim de Notícias</span>
+          </div>
+        </Link>
       </main>
 
       {search && (

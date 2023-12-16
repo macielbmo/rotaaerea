@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AiOutlinePlus } from "react-icons/ai";
+import { RiSubtractFill } from "react-icons/ri";
 
 import { Container } from "./style";
 
@@ -20,20 +21,33 @@ export default function Item({name, list, handleSidebar}: ItemProps) {
 
   return(
     <Container>
-      <div className='menu' onClick={() => handleDropdown()}>
-        <h3 className='title'>{name}</h3>
+      <div className='menu'>
+
+        <Link to={`category/${name}`} onClick={() => handleSidebar()} className='link'>
+          <h3 className='title'>{name}</h3>
+        </Link>
 
         {list.length > 0 && (
-          <AiOutlinePlus
-            className='icon'
-        />
+          <div className='icon-drop-list'>
+            {!dropdown ? (
+              <AiOutlinePlus
+              className='icon'
+              onClick={() => handleDropdown()}
+            />
+            ) : (
+              <RiSubtractFill
+              className='icon'
+              onClick={() => handleDropdown()}
+            />
+            )}
+          </div>
         )}
       </div>
 
       <li className='list'>
         {dropdown && (
           list.map((name, index) => (
-            <Link to={`tag/${name}`}>
+            <Link to={`tag/${name}`} onClick={() => handleSidebar()}>
               <a className='item' key={index} onClick={() => handleSidebar()}> {name} </a>
             </Link>
           ))

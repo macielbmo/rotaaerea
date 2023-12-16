@@ -1,7 +1,8 @@
 import { Main } from "../../assets/styles/global";
+import { Container } from "./style";
+
 import Box1 from "../../components/BoxNews/Box1";
 import Box2 from "../../components/BoxNews/Box2";
-import { Container } from "./style";
 
 import dbNews from '../../services/news.json';
 
