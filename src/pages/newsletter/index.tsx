@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Main } from "../../assets/styles/global";
 import { Container } from "./style";
 
-export function Newsletter() {
+export default function Newsletter() {
   const [email, setEmail] = useState("");
 
   function handleEmail(e: string) {
