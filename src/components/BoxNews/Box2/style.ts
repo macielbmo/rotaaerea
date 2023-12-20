@@ -73,7 +73,7 @@ export const Container = styled.div`
     }
   }
 
-  @media (max-width: 414px) {
+  @media (max-width: 560px) {
     display: block;
 
     .box-img {

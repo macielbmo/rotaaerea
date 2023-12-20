@@ -35,27 +35,29 @@ export default function Tag() {
       </div>
 
       <Main>
-        <article className="grid-content">
-              <div className="title-grid">
-                {news && news?.length < 1 ? (
-                  <p>Não há noticias relacionadas a tag <strong>{id}</strong>...</p>
-                ) : (
-                  <h1>Mais Recentes</h1>
-                )}
-              </div>
+        <div className="box-main">
+          <article className="grid-content">
+                <div className="title-grid">
+                  {news && news?.length < 1 ? (
+                    <p>Não há noticias relacionadas a tag <strong>{id}</strong>...</p>
+                  ) : (
+                    <h1>Mais Recentes</h1>
+                  )}
+                </div>
 
-              {news && news.map((item) => (
-                <Box2
-                  key={item.id}
-                  id={item.id}
-                  img={item.img}
-                  title={item.title}
-                  category={item.category}
-                  date={item.date}
-                  author={item.author}
-                />
-              ))}
-          </article>
+                {news && news.map((item) => (
+                  <Box2
+                    key={item.id}
+                    id={item.id}
+                    img={item.img}
+                    title={item.title}
+                    category={item.category}
+                    date={item.date}
+                    author={item.author}
+                  />
+                ))}
+            </article>
+          </div>
         </Main>
     </Container>
   )

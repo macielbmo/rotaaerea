@@ -16,6 +16,10 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.categoryColors["primary-text-color"]};
   }
 
+  .box-main {
+    padding: 0 15px;
+  }
+
   .grid-content {
     margin-top: 35px;
     width: 65%;
@@ -28,5 +32,11 @@ export const Container = styled.div`
 
   .title-grid p {
     color: ${({ theme }) => theme.categoryColors["secondary-text-color"]};
+  }
+
+  @media (max-width: 720px) {
+    .grid-content {
+      width: 100%;
+    }
   }
 `

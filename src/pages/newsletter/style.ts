@@ -48,4 +48,16 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.primaryColors["primary-background-color"]};
     }
   }
+
+  @media(max-width: 756px) {
+    .box {
+      width: 80%;
+    }
+  }
+
+  @media(max-width: 375px) {
+    .box {
+      width: 95%;
+    }
+  }
 `

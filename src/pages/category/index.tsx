@@ -38,7 +38,8 @@ export default function Category() {
       </div>
 
       <Main>
-        <article className="grid-content">
+        <div className="box-main">
+          <article className="grid-content">
               <div className="title-grid">
                 {news && news?.length < 1 ? (
                   <p>Não há noticias relacionadas a tag <strong>{id}</strong>...</p>
@@ -59,7 +60,8 @@ export default function Category() {
                 />
               ))}
           </article>
-        </Main>
+        </div>
+      </Main>
     </Container>
   )
 }
