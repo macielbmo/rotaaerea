@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from 'react'
+import { setTheme } from '../assets/styles/themes/configTheme'
 
 interface ThemeContextData {
   handleTheme: () => void
@@ -21,7 +22,7 @@ export function Theme({children, themeActive}: ThemeProviderProps) {
     setThemeSlect(themeSelect === 'light' ? 'dark' : 'light')
     setChecked(!checked)
     themeActive()
-    console.log(themeSelect)
+    setTheme(themeSelect)
   }
 
   return(

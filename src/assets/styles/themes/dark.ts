@@ -8,7 +8,7 @@ export default {
   },
 
   secondaryColors: {
-    'secondary-text-color': '#7e9fff',
+    'secondary-text-color': '#F5F5F5',
     'secondary-background-color': '#292C44',
   },
 
@@ -35,14 +35,14 @@ export default {
   },
 
   sidebarColors: {
-    'nav-bar-background-color': '#f5f5f5',
-    'nav-bar-text-color': '#292C44',
+    'nav-bar-background-color': '#292C44',
+    'nav-bar-text-color': '#F5F5F5',
     'nav-bar-text-second-color': '#3366FF',
   },
 
   categoryColors: {
     'primary-text-color': '#e0ecff',
-    'secondary-text-color': '#292C44',
+    'secondary-text-color': '#e0ecff',
     'primary-background-color': '#292C44',
   },
 

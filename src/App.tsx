@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './Router'
 
@@ -10,18 +10,26 @@ import GlobalStyles from './assets/styles/global'
 import { Theme } from './contexts/ThemeContext'
 import light from './assets/styles/themes/light'
 import dark from './assets/styles/themes/dark'
+import { getTheme, setTheme } from './assets/styles/themes/configTheme'
 
 function App() {
-  const [themeActive, setThemeActive] = useState(light)
+  const userTheme = getTheme();
 
-  function ThemeActive() {
-    setThemeActive(themeActive.title === 'light' ? dark : light)
-    console.log(themeActive)
+  useEffect(() => {
+    if (!userTheme) {
+      setTheme('light');
+    }
+  }, [userTheme]);
+
+  const [themeActive, setThemeActive] = useState<string | null>(userTheme)
+
+  function toggleTheme() {
+    setThemeActive((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   }
 
   return (
-    <Theme themeActive={ThemeActive}>
-      <ThemeProvider theme={themeActive}>
+    <Theme themeActive={toggleTheme}>
+      <ThemeProvider theme={themeActive === 'light' ? light : dark}>
           <GlobalStyles />
           <RouterProvider router={router}/>
       </ThemeProvider>

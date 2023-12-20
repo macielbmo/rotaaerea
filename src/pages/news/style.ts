@@ -29,6 +29,10 @@ export const Container = styled.div`
     background-color: ${({ theme }) => theme.newsColors["primary-background-color"]};
   }
 
+  .title, .sub-title, .author, .main div {
+    color: ${({ theme }) => theme.sidebarColors["nav-bar-text-color"]}
+  }
+
   .title {
     font-size: 40px;
   }

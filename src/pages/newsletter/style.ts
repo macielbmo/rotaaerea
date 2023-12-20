@@ -16,6 +16,7 @@ export const Container = styled.div`
 
     h1 {
       font-size: 27px;
+      color: ${({ theme }) => theme.sidebarColors["nav-bar-text-color"]}
     }
 
     p {
@@ -44,6 +45,7 @@ export const Container = styled.div`
 
     button:hover {
       background-color: ${({ theme }) => theme.secondaryColors["secondary-background-color"]};
+      color: ${({ theme }) => theme.primaryColors["primary-background-color"]};
     }
   }
 `

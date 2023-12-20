@@ -15,6 +15,7 @@ export const Container = styled.div`
   .grid-content {
     margin-top: 45px;
     width: 65%;
+    color: ${({ theme }) => theme.sidebarColors["nav-bar-text-color"]}
   }
 
   @media (max-width: 760px) {

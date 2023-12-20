@@ -21,7 +21,6 @@ export const Container = styled.div`
   .icon {
     font-size: 24px;
     color: ${({ theme }) => theme.sidebarColors["nav-bar-text-color"]};
-
     cursor: pointer;
   }
 
@@ -48,6 +47,8 @@ export const Container = styled.div`
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
+
+    color: ${({ theme }) => theme.sidebarColors["nav-bar-text-color"]}
   }
 
   .newsletter {
