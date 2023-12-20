@@ -1,27 +1,13 @@
-# React + TypeScript + Vite
+# Rota Aérea
+Site de notícias, construido em ReactJs e TypeScript.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Print home do projeto](https://i.ibb.co/cN5mr69/home.png)
 
-Currently, two official plugins are available:
+## 🔥Introdução
+O objetivo do projeto foi construir um site de noticias sobre aviação. Um site que tenha um visual mais moderno e que tenha mais funcionalidades se diferenciando de outros sites de mesmo tema que existem no Brasil.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Esse projeto é apenas o front-end do site, mas que já está com sua primeira versão pronta, faltando agora a implementação do back-end.
 
-## Expanding the ESLint configuration
+Você pode ver o site em funcionamento acessando o link: https://rotaaerea.vercel.app/
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Site conta com troca de tema, menu interativo, cadastro em newsletter, dentre outras funcionalidades que estão no planejamento futuro para desenvolvimento.
