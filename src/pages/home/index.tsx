@@ -19,13 +19,21 @@ interface NewsItem {
   date: string;
 }
 
+interface CustomDateTimeFormatOptions {
+  day: '2-digit';
+  month: '2-digit';
+  year?: 'numeric' | '2-digit';
+  hour: '2-digit';
+  minute: '2-digit';
+}
+
 export default function Home() {
   const [newsData, setNewsData] = useState<NewsItem[] | null>(null);
 
-  const options = {
+  const options: CustomDateTimeFormatOptions = {
     day: '2-digit',
     month: '2-digit',
-    year: 'numeric' || '2-digit' || undefined,
+    year: '2-digit',
     hour: '2-digit',
     minute: '2-digit'
   };
