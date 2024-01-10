@@ -73,7 +73,7 @@ export default function Header() {
 
         <nav className='content-nav'>
           <ul className='list'>
-            {categories.filter(item => item.activate_menu === true).map((item: categoriesItem) => (
+            {categories.filter((item: categoriesItem) => item.activate_menu === true).map((item: categoriesItem) => (
               <Link key={item.id} to={`category/${item.name}`}>
                 <li>{item.name}</li>
               </Link>

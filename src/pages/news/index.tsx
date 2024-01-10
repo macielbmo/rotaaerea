@@ -5,9 +5,6 @@ import { useParams } from 'react-router-dom'
 import Share from "../../components/Share"
 import { Container } from "./style"
 
-// Arquivo DataBase
-import dbNews from '../../services/news.json'
-
 // Interface
 interface NewsItem {
 author: string;
@@ -46,7 +43,7 @@ export default function News() {
           throw new Error('Não foi possível obter os dados.');
         }
 
-        const data: NewsItem[] = await response.json();
+        const data = await response.json();
         setNewsData(data);
         console.log(`Response: ${JSON.stringify(data)}`)
 

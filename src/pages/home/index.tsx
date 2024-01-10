@@ -25,10 +25,10 @@ export default function Home() {
   const options = {
     day: '2-digit',
     month: '2-digit',
-    year: 'numeric',
+    year: 'numeric' || '2-digit' || undefined,
     hour: '2-digit',
     minute: '2-digit'
-  }
+  };
 
   useEffect(() => {
     async function fetchData() {
