@@ -62,6 +62,11 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.newsColors["news-text-color"]};
   }
 
+  .main img {
+    width: 100%;
+    height: auto;
+  }
+
   @media (max-width: 1240px) {
     .title {
       font-size: 32px;

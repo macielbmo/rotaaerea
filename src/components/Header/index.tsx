@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { GiHamburgerMenu } from 'react-icons/gi'
@@ -8,35 +8,48 @@ import { Container } from './style'
 import { Main } from '../../assets/styles/global'
 import Sidebar from './Sidebar'
 
+// Interface
+interface categoriesItem {
+  id: string;
+  name: string;
+  color: string;
+  created_at: string;
+  updated_at: string;
+  activate_menu: boolean;
+}
+
 export default function Header() {
   const [openSidebar, setOpenSideber] = useState(false)
+  const [categories, setCategories] = useState([])
 
   function handleSidebar() {
     setOpenSideber(!openSidebar)
   }
 
-  const listCategory = [
-    {
-      "id": "1",
-      "name": "Notícia"
-    },
-    {
-      "id": "2",
-      "name": "Companhias Aéreas"
-    },
-    {
-      "id": "3",
-      "name": "Aeroportos"
-    },
-    {
-      "id": "4",
-      "name": "Industria"
-    },
-    {
-      "id": "5",
-      "name": "Militar"
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const apiUrl = `https://rotaaerea-backend.vercel.app`;
+
+        const response = await fetch(`${apiUrl}/categories`, {
+          method: 'GET',
+          mode: 'cors'
+        })
+
+        if (!response.ok) {
+          throw new Error('Não foi possível obter os dados.');
+        }
+
+        const data = await response.json();
+        setCategories(data);
+        console.log(data)
+
+      } catch (error) {
+        console.log(error);
+      }
     }
-  ]
+    fetchData()
+  }, [])
 
   return(
     <Container>
@@ -60,8 +73,8 @@ export default function Header() {
 
         <nav className='content-nav'>
           <ul className='list'>
-            {listCategory.map((item) => (
-              <Link to={`category/${item.name}`}>
+            {categories.filter(item => item.activate_menu === true).map((item: categoriesItem) => (
+              <Link key={item.id} to={`category/${item.name}`}>
                 <li>{item.name}</li>
               </Link>
             ))}

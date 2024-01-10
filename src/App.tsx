@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './Router'
 
+// DotEnv
+// import dotenv from 'dotenv';
+// dotenv.config();
+
 // Estilização
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './assets/styles/global'
