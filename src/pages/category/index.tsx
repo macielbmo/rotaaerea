@@ -46,11 +46,11 @@ export default function Category() {
         }
 
         const data: NewsItem[] = await response.json();
-        console.log(data)
+        // console.log(data)
 
         const news = data.filter(item => item.category_news_name === id)
         setNews(news);
-        console.log(news)
+        // console.log(news)
 
       } catch (error) {
         console.log(error);

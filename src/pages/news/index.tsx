@@ -47,7 +47,7 @@ export default function News() {
 
         const data = await response.json();
         setNewsData(data);
-        console.log(`Response: ${JSON.stringify(data)}`)
+        // console.log(`Response: ${JSON.stringify(data)}`)
 
       } catch (error) {
         console.log(error);

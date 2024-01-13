@@ -48,7 +48,7 @@ export default function Tag() {
 
         setNews(data.filter(item => id && item.tags.map((tag: string) => tag.toLowerCase()).includes(id.toLowerCase())));
 
-        console.log(data)
+        // console.log(data)
 
       } catch (error) {
         console.log(error);
@@ -56,11 +56,6 @@ export default function Tag() {
     }
     fetchData()
   }, [id])
-
-  // useEffect(() => {
-  //   console.log(id)
-  //   setNews(dbNews.news.filter(item => item.tags.some(tag => tag.toLowerCase() == id?.toLowerCase())));
-  // }, [id])
 
   return(
     <Container>
