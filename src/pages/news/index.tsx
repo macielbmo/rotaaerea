@@ -7,22 +7,24 @@ import { Container } from "./style"
 
 // Interface
 interface NewsItem {
-author: string;
-category: string;
-category_news_name: string;
-content: string;
-created_at: string;
-id: string;
-image_description: string;
-news_source: string;
-schedule: string;
-status: string;
-subtitle: string;
-tags: string;
-title: string;
-updated_at: string;
-url_image: string;
-url_source: string
+  id: string,
+  title: string,
+  subtitle: string,
+  category_news: string,
+  category_news_name: string
+  url_img: string,
+  img_description: string,
+  author: string,
+  date: string,
+  content: string,
+  content_id: string,
+  news_source: string,
+  schedule: string
+  url_source: string
+  tags: string,
+  status: true,
+  updated_at: string,
+  created_at: string,
 }
 
 export default function News() {
@@ -33,7 +35,7 @@ export default function News() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const apiUrl = `https://rotaaerea-backend.vercel.app`;
+        const apiUrl = `https://rotaaerea-backend.vercel.app/`;
 
         const response = await fetch(`${apiUrl}/news/${id}`, {
           method: 'GET'
@@ -68,7 +70,7 @@ export default function News() {
             <span className="author">Por <strong> {newsData.author} </strong> {newsData.created_at}</span>
           </section>
 
-          <img className="image" src={newsData.url_image} alt={""} />
+          <img className="image" src={newsData.url_img} alt={""} />
 
           <section className="main">
             <div dangerouslySetInnerHTML={{ __html: newsData.content }} />

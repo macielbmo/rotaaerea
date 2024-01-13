@@ -4,7 +4,7 @@ import { Container } from "./style";
 
 interface BoxProps {
   id: string,
-  img: string,
+  url_img: string,
   title: string,
   category: string,
   author: string,
@@ -15,7 +15,7 @@ export default function Box1(props: BoxProps) {
   return(
     <Container>
       <Link to={`news/${props.id}`}>
-        <img src={props.img} alt={props.title} />
+        <img src={props.url_img} alt={props.title} />
 
         <div className="content">
           <div className="category">

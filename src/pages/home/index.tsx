@@ -11,7 +11,7 @@ import Box2 from "../../components/BoxNews/Box2";
 // Interface
 interface NewsItem {
   id: string;
-  url_image: string;
+  url_img: string;
   title: string;
   category_news_name: string;
   created_at: string;
@@ -41,7 +41,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const apiUrl = `https://rotaaerea-backend.vercel.app`;
+        const apiUrl = `https://rotaaerea-backend.vercel.app/`;
 
         const response = await fetch(`${apiUrl}/news`, {
           method: 'GET',
@@ -54,7 +54,7 @@ export default function Home() {
 
         const data: NewsItem[] = await response.json();
         setNewsData(data);
-        console.log(data)
+        // console.log(data)
 
       } catch (error) {
         console.log(error);
@@ -75,7 +75,7 @@ export default function Home() {
                   <Box1
                     key={index}
                     id={item.id}
-                    img={item.url_image}
+                    url_img={item.url_img}
                     title={item.title}
                     category={item.category_news_name}
                     date={new Intl.DateTimeFormat('pt-BR', options).format(new Date(item.created_at))}
@@ -93,7 +93,7 @@ export default function Home() {
                 <Box2
                   key={index}
                   id={item.id}
-                  img={item.url_image}
+                  img={item.url_img}
                   title={item.title}
                   category={item.category_news_name}
                   date={item.date}

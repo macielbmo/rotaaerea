@@ -5,18 +5,25 @@ import { Main } from "../../assets/styles/global";
 import Box2 from "../../components/BoxNews/Box2";
 import { Container } from "./style";
 
-import dbNews from"../../services/news.json";
-
 interface NewsItem {
   id: string,
-  img: string,
   title: string,
   subtitle: string,
-  category: string,
+  category_news: string,
+  category_news_name: string
+  url_img: string,
+  img_description: string,
   author: string,
   date: string,
-  tags: string[],
-  content: string
+  content: string,
+  content_id: string,
+  news_source: string,
+  schedule: string
+  url_source: string
+  tags: Array<string>,
+  status: true,
+  updated_at: string,
+  created_at: string,
 }
 
 export default function Tag() {
@@ -24,9 +31,36 @@ export default function Tag() {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log(id)
-    setNews(dbNews.news.filter(item => item.tags.some(tag => tag.toLowerCase() == id?.toLowerCase())));
+    async function fetchData() {
+      try {
+        const apiUrl = `https://rotaaerea-backend.vercel.app/`;
+
+        const response = await fetch(`${apiUrl}/news`, {
+          method: 'GET',
+          mode: 'cors'
+        })
+
+        if (!response.ok) {
+          throw new Error('Não foi possível obter os dados.');
+        }
+
+        const data: NewsItem[] = await response.json();
+
+        setNews(data.filter(item => id && item.tags.map((tag: string) => tag.toLowerCase()).includes(id.toLowerCase())));
+
+        console.log(data)
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData()
   }, [id])
+
+  // useEffect(() => {
+  //   console.log(id)
+  //   setNews(dbNews.news.filter(item => item.tags.some(tag => tag.toLowerCase() == id?.toLowerCase())));
+  // }, [id])
 
   return(
     <Container>
@@ -49,9 +83,9 @@ export default function Tag() {
                   <Box2
                     key={item.id}
                     id={item.id}
-                    img={item.img}
+                    img={item.url_img}
                     title={item.title}
-                    category={item.category}
+                    category={item.category_news_name}
                     date={item.date}
                     author={item.author}
                   />

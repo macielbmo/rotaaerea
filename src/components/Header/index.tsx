@@ -29,7 +29,7 @@ export default function Header() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const apiUrl = `https://rotaaerea-backend.vercel.app`;
+        const apiUrl = `http://localhost:3001`;
 
         const response = await fetch(`${apiUrl}/categories`, {
           method: 'GET',
@@ -42,7 +42,7 @@ export default function Header() {
 
         const data = await response.json();
         setCategories(data);
-        console.log(data)
+        // console.log(data)
 
       } catch (error) {
         console.log(error);
