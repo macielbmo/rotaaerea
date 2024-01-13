@@ -41,7 +41,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const apiUrl = `https://rotaaerea-backend.vercel.app/`;
+        const apiUrl = `https://rotaaerea-backend.vercel.app`;
 
         const response = await fetch(`${apiUrl}/news`, {
           method: 'GET',
