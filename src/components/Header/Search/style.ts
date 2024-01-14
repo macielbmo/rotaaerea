@@ -37,6 +37,7 @@ export const Container = styled.div`
 
   .search span {
     font-size: 48px;
+    cursor: pointer;
   }
 
   .search input {

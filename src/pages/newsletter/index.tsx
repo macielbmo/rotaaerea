@@ -7,7 +7,31 @@ export default function Newsletter() {
 
   function handleEmail(e: string) {
     setEmail(e)
-    console.log(email)
+  }
+
+  async function sendForm() {
+    try {
+      const url = 'http://localhost:3001'
+      console.log(email)
+      const response = await fetch(`${url}/newsletter`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({email: email}),
+      })
+
+      if (!response.ok) {
+        throw new Error('Erro ao cadastrar Email')
+      }
+
+      const data = await response.json()
+      console.log('Email cadastrado com sucesso:', data)
+    } catch (error) {
+      console.log('Erro ao cadastrar Email:', error)
+    }
   }
 
   return(
@@ -20,7 +44,7 @@ export default function Newsletter() {
 
           <input type="email" placeholder="Digite seu e-mail..." onChange={(e) => handleEmail(e.target.value)}/>
 
-          <button>Me inscrever</button>
+          <button onClick={sendForm}>Me inscrever</button>
         </div>
       </Container>
     </Main>

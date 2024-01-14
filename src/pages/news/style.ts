@@ -67,6 +67,11 @@ export const Container = styled.div`
     height: auto;
   }
 
+  .ql-video {
+    width: 80%;
+    height: 350px;
+  }
+
   @media (max-width: 1240px) {
     .title {
       font-size: 32px;
@@ -94,6 +99,18 @@ export const Container = styled.div`
 
     .image {
       padding: 0;
+    }
+
+    .ql-video {
+      width: 80%;
+      height: 350px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .ql-video {
+      width: 80%;
+      height: 180px;
     }
   }
 `
