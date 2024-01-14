@@ -53,6 +53,14 @@ export const Container = styled.div`
     }
   }
 
+  .message {
+    margin-top: 10px;
+  }
+
+  .success {
+    color: green;
+  }
+
   @media(max-width: 756px) {
     .box {
       width: 80%;
