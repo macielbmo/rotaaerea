@@ -3,20 +3,20 @@ import { AiOutlineClose } from "react-icons/ai";
 import { Container } from "./style";
 import { useState } from "react";
 
-// interface SearchProps {
-//   heandleSearch: () => void;
-// }
+interface SearchProps {
+  heandleSearch: () => void;
+}
 
 export function Search({ heandleSearch }: SearchProps) {
-  // const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('')
 
-  // function handleSearch(e: string) {
-  //   setSearch(e.target.value)
-  // }
+  function handleSearch(e: string) {
+    setSearch(e)
+  }
 
-  // function handleSend() {
-
-  // }
+  function handleSend() {
+    console.log(search)
+  }
 
   return (
     <Container>
@@ -28,8 +28,8 @@ export function Search({ heandleSearch }: SearchProps) {
       />
 
       <div className='search'>
-        <span ><BiSearch /></span>
-        <input type="text" placeholder="Pesquisa Rota Aérea" />
+        <span onClick={handleSend}><BiSearch /></span>
+        <input type="text" placeholder="Pesquisa Rota Aérea" onChange={(e) => handleSearch(e.target.value)}/>
       </div>
     </Container>
   );
