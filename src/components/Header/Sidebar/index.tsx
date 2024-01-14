@@ -46,7 +46,7 @@ export default function Sidebar({ handleSidebar }: SidebarProps) {
 
           <Item
             name='Industria'
-            list={["Airbus", "Boing", "Embraer"]}
+            list={["Airbus", "Boeing", "Embraer"]}
             handleSidebar={handleSidebar}
           />
 
