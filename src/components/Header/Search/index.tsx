@@ -8,15 +8,15 @@ interface SearchProps {
 }
 
 export function Search({ heandleSearch }: SearchProps) {
-  const [search, setSearch] = useState('')
+  // const [search, setSearch] = useState('')
 
-  function handleSearch(e: string) {
-    setSearch(e.target.value)
-  }
+  // function handleSearch(e: string) {
+  //   setSearch(e.target.value)
+  // }
 
-  function handleSend() {
+  // function handleSend() {
 
-  }
+  // }
 
   return (
     <Container>

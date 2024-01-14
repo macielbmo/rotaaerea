@@ -4,15 +4,17 @@ import { Container } from "./style";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
+  const [sendEmail, setSendEmail] = useState(false);
 
   function handleEmail(e: string) {
     setEmail(e)
   }
 
-  async function sendForm() {
+  async function sendForm(e: any) {
+    e.preventDefault()
     try {
       const url = 'http://localhost:3001'
-      console.log(email)
+
       const response = await fetch(`${url}/newsletter`, {
         method: 'POST',
         mode: 'cors',
@@ -28,6 +30,8 @@ export default function Newsletter() {
       }
 
       const data = await response.json()
+      setSendEmail(true)
+      console.log(sendEmail)
       console.log('Email cadastrado com sucesso:', data)
     } catch (error) {
       console.log('Erro ao cadastrar Email:', error)
@@ -42,9 +46,14 @@ export default function Newsletter() {
 
           <p>Fique atenado no mundo da aviação comercial, militar e privada do Brasil. Através do boletins, você receberá um resumo das princiapais noticias todo domingo.</p>
 
-          <input type="email" placeholder="Digite seu e-mail..." onChange={(e) => handleEmail(e.target.value)}/>
+          <form action="submit">
+            <input type="email" placeholder="Digite seu e-mail..." onChange={(e) => handleEmail(e.target.value)}/>
+            <button onClick={(e) => sendForm(e)}>Me inscrever</button>
+          </form>
 
-          <button onClick={sendForm}>Me inscrever</button>
+          {sendEmail ? (
+            <div>Email enviado</div>
+          ) : null}
         </div>
       </Container>
     </Main>

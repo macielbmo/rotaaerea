@@ -25,6 +25,10 @@ export const Container = styled.div`
       color: gray;
     }
 
+    form {
+      width: 100%;
+    }
+
     input {
       width: 85%;
       height: 36px;
