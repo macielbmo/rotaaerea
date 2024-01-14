@@ -3,9 +3,9 @@ import { AiOutlineClose } from "react-icons/ai";
 import { Container } from "./style";
 import { useState } from "react";
 
-interface SearchProps {
-  heandleSearch: () => void;
-}
+// interface SearchProps {
+//   heandleSearch: () => void;
+// }
 
 export function Search({ heandleSearch }: SearchProps) {
   // const [search, setSearch] = useState('')
@@ -28,8 +28,8 @@ export function Search({ heandleSearch }: SearchProps) {
       />
 
       <div className='search'>
-        <span onClick={handleSend}><BiSearch /></span>
-        <input type="text" placeholder="Pesquisa Rota Aérea" onChange={handleSearch}/>
+        <span ><BiSearch /></span>
+        <input type="text" placeholder="Pesquisa Rota Aérea" />
       </div>
     </Container>
   );
