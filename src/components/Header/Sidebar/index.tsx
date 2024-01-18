@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { AiOutlineMail } from "react-icons/ai";
 import { GrClose, GrSearch } from 'react-icons/gr'
-import { Search } from '../Search';
+// import { Search } from '../Search';
 
 import Switch from 'react-switch'
 
@@ -86,9 +86,9 @@ export default function Sidebar({ handleSidebar }: SidebarProps) {
         </Link>
       </main>
 
-      {search && (
+      {/* {search && (
         <Search heandleSearch={handleSearch}/>
-      )}
+      )} */}
     </Container>
   )
 }

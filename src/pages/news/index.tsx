@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 // Components
 import Share from "../../components/Share"
@@ -56,8 +57,24 @@ export default function News() {
     fetchData()
   }, [])
 
+  // Meta-Tags
+  const contentString = newsData?.content.split(' ');
+  const description = contentString?.slice(0, 20).join(' ');
+  const urlPage = window.location.href;
+
   return(
     <Container>
+      <Helmet>
+        <title>{newsData?.title}</title>
+        <meta name="description" content={description} />
+        <meta name="author" content={newsData?.author} />
+
+        <meta property="og:title" content={newsData?.title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={newsData?.url_img} />
+        <meta property="og:url" content={urlPage} />
+      </Helmet>
+
       {newsData ? (
         <>
           <section className="header">
