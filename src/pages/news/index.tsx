@@ -76,7 +76,7 @@ export default function News() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const apiUrl = `http://localhost:3001`;
+        const apiUrl = `https://rotaaerea-backend.vercel.app`;
 
         const maxResult = 10;
 
