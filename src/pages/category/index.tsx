@@ -1,10 +1,14 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+// Styles
 import { Main } from "../../assets/styles/global";
-import Box2 from "../../components/BoxNews/Box2";
 import { Container } from "./style";
 
+// Components
+import Box2 from "../../components/BoxNews/Box2";
+
+// Interfaces
 interface NewsItem {
   id: string,
   title: string,
@@ -62,7 +66,7 @@ export default function Category() {
   return(
     <Container>
       <div className="title-category">
-        <h1>Companhias Aéreas</h1>
+        <h1>{id}</h1>
       </div>
 
       <Main>

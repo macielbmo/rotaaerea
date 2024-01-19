@@ -33,7 +33,7 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.sidebarColors["nav-bar-text-color"]}
   }
 
-  .title {
+  .header .title {
     font-size: 40px;
   }
 
@@ -72,6 +72,22 @@ export const Container = styled.div`
     height: 350px;
   }
 
+  .secondTitle {
+    margin: 15px 0;
+  }
+
+  .moreNews {
+    padding: 20px;
+
+    h2 {
+      font-size: 28px;
+    }
+  }
+
+  .box-news {
+    width: 65%;
+  }
+
   @media (max-width: 1240px) {
     .title {
       font-size: 32px;
@@ -82,6 +98,10 @@ export const Container = styled.div`
     .main {
       max-width: 100%;
     }
+
+    .box-news {
+    width: 100%;
+  }
   }
 
   @media (max-width: 768px) {
@@ -104,6 +124,10 @@ export const Container = styled.div`
     .ql-video {
       width: 80%;
       height: 350px;
+    }
+
+    .grid-content {
+      width: 100%;
     }
   }
 

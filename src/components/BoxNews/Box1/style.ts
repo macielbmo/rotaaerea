@@ -46,7 +46,7 @@ export const Container = styled.div`
   }
 
   .content h1 {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   .author {

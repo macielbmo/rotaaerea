@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 
+// Style
+import { Container } from "./style"
+
 // Components
 import Share from "../../components/Share"
-import { Container } from "./style"
+import Box2 from '../../components/BoxNews/Box2';
 
 // Interface
 interface NewsItem {
@@ -28,11 +31,23 @@ interface NewsItem {
   created_at: string,
 }
 
+interface NewsItem {
+  id: string;
+  url_img: string;
+  title: string;
+  category_news_name: string;
+  created_at: string;
+  author: string;
+  date: string;
+}
+
 export default function News() {
   const [newsData, setNewsData] = useState<NewsItem | null>(null);
+  const [moreNews, setMoreNews] = useState<NewsItem[] | null>(null);
 
   const { id } = useParams();
 
+  // Conexão com a API para buscar pelo conteúdo da noticia
   useEffect(() => {
     async function fetchData() {
       try {
@@ -55,7 +70,35 @@ export default function News() {
       }
     }
     fetchData()
-  }, [])
+  }, [id])
+
+  // Conexão com a API para buscar mais notícias e apresentar no final da pagina
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const apiUrl = `http://localhost:3001`;
+
+        const maxResult = 10;
+
+        const response = await fetch(`${apiUrl}/newsLimited?limit=${maxResult}&id=${id}`, {
+          method: 'GET',
+          mode: 'cors'
+        })
+
+        if (!response.ok) {
+          throw new Error('Não foi possível obter os dados.');
+        }
+
+        const data: NewsItem[] = await response.json();
+        setMoreNews(data);
+        console.log(data)
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData()
+  }, [id])
 
   // Meta-Tags
   const contentString = newsData?.content.split(' ');
@@ -100,6 +143,25 @@ export default function News() {
       ): (
         <p>Dados não encontrados ou carregados...</p>
       )}
+
+
+      <section className='moreNews'>
+        <h2 className='secondTitle'>Mais notícias</h2>
+
+        <div className='box-news'>
+          {moreNews?.map((item, index) => (
+            <Box2
+              key={index}
+              id={item.id}
+              img={item.url_img}
+              title={item.title}
+              category={item.category_news_name}
+              date={item.date}
+              author={item.author}
+            />
+          ))}
+        </div>
+      </section>
     </Container>
   )
 }

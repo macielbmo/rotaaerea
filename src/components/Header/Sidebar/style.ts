@@ -15,7 +15,7 @@ export const Container = styled.div`
 
   .top-sidebar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 
   .icon {

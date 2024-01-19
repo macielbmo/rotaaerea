@@ -1,9 +1,9 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { ThemeContext } from '../../../contexts/ThemeContext';
 import { Link } from 'react-router-dom';
 
 import { AiOutlineMail } from "react-icons/ai";
-import { GrClose, GrSearch } from 'react-icons/gr'
+import { GrClose } from 'react-icons/gr'
 // import { Search } from '../Search';
 
 import Switch from 'react-switch'
@@ -16,17 +16,17 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ handleSidebar }: SidebarProps) {
-  const [search, setSearch] = useState(false)
+  // const [search, setSearch] = useState(false)
   const { handleTheme, checked } = useContext(ThemeContext)
 
-  function handleSearch() {
-    setSearch(!search)
-  }
+  // function handleSearch() {
+  //   setSearch(!search)
+  // }
 
   return(
     <Container>
       <div className="top-sidebar">
-        <span className="icon" onClick={handleSearch}><GrSearch /></span>
+        {/* <span className="icon" onClick={handleSearch}><GrSearch /></span> */}
         <span className="icon" onClick={handleSidebar}><GrClose /></span>
       </div>
 
