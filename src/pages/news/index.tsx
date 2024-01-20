@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import { format } from 'date-fns'
 
 // Style
 import { Container } from "./style"
@@ -8,6 +9,9 @@ import { Container } from "./style"
 // Components
 import Share from "../../components/Share"
 import Box2 from '../../components/BoxNews/Box2';
+
+// Img
+import gifLoading from "../../assets/img/loading.gif";
 
 // Interface
 interface NewsItem {
@@ -76,11 +80,13 @@ export default function News() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const apiUrl = `https://rotaaerea-backend.vercel.app`;
+        const apiUrl = `http://localhost:3001`;
 
         const maxResult = 10;
+        const newsId = newsData?.id;
+        const categoryId = newsData?.category_news;
 
-        const response = await fetch(`${apiUrl}/newsLimited?limit=${maxResult}&id=${id}`, {
+        const response = await fetch(`${apiUrl}/newsLimited?limit=${maxResult}&id=${newsId}&idcategory=${categoryId}`, {
           method: 'GET',
           mode: 'cors'
         })
@@ -91,19 +97,25 @@ export default function News() {
 
         const data: NewsItem[] = await response.json();
         setMoreNews(data);
-        console.log(data)
+        // console.log(data)
 
       } catch (error) {
         console.log(error);
       }
     }
-    fetchData()
-  }, [id])
+
+    if(newsData?.category_news != undefined) {
+      fetchData()
+    }
+  }, [id, newsData])
 
   // Meta-Tags
   const contentString = newsData?.content.split(' ');
   const description = contentString?.slice(0, 20).join(' ');
   const urlPage = window.location.href;
+
+  // Formatar data
+  const dateFormated = format(Date(newsData?.created_at), 'dd/MM/yyyy')
 
   return(
     <Container>
@@ -121,13 +133,13 @@ export default function News() {
       {newsData ? (
         <>
           <section className="header">
-            <span className="catogory">{newsData.category_news_name}</span>
+            <Link to={`/category/${newsData.category_news_name}`}><span className="catogory">{newsData.category_news_name}</span></Link>
 
             <h1 className="title">{newsData.title}</h1>
 
             <p className="sub-title">{newsData.subtitle}</p>
 
-            <span className="author">Por <strong> {newsData.author} </strong> {newsData.created_at}</span>
+            <span className="author">Por <strong> {newsData.author} </strong> | publicado em {dateFormated}</span>
           </section>
 
           <img className="image" src={newsData.url_img} alt={""} />
@@ -139,29 +151,35 @@ export default function News() {
           <section className="footer">
             <Share />
           </section>
+
+          <section className='moreNews'>
+            <h2 className='secondTitle'>Mais notícias</h2>
+
+            <div className='box-news'>
+              {moreNews?.map((item, index) => (
+                <Box2
+                  key={index}
+                  id={item.id}
+                  img={item.url_img}
+                  title={item.title}
+                  category={item.category_news_name}
+                  date={item.date}
+                  author={item.author}
+                />
+              ))}
+            </div>
+          </section>
         </>
       ): (
-        <p>Dados não encontrados ou carregados...</p>
+        <>
+          <div className="loading">
+            <img src={gifLoading} alt="Icone de carregamento da pagina" />
+          </div>
+        </>
       )}
 
 
-      <section className='moreNews'>
-        <h2 className='secondTitle'>Mais notícias</h2>
 
-        <div className='box-news'>
-          {moreNews?.map((item, index) => (
-            <Box2
-              key={index}
-              id={item.id}
-              img={item.url_img}
-              title={item.title}
-              category={item.category_news_name}
-              date={item.date}
-              author={item.author}
-            />
-          ))}
-        </div>
-      </section>
     </Container>
   )
 }

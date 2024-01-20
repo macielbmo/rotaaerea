@@ -33,7 +33,7 @@ export default function Sidebar({ handleSidebar }: SidebarProps) {
       <main className='content'>
         <ul>
           <Item
-            name='Companhias Aéreas'
+            name='Companhias Aérea'
             list={["Azul", "Latam", "Gol", "Avianca", "VoePass"]}
             handleSidebar={handleSidebar}
           />

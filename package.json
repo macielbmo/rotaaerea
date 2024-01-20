@@ -11,6 +11,7 @@
     "start": "vite"
   },
   "dependencies": {
+    "date-fns": "^3.3.0",
     "dotenv": "^16.3.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

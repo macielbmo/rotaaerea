@@ -7,6 +7,19 @@ export const Container = styled.div`
   flex-direction: column;
   margin: 35px auto;
 
+  .loading {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      margin: 0 auto;
+      width: 70px;
+      height: 70px;
+    }
+  }
+
   .header, .main, .footer, .image {
     padding: 0 20px;
   }

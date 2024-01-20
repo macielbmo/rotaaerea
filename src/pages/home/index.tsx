@@ -8,6 +8,9 @@ import { Container } from "./style";
 import Box1 from "../../components/BoxNews/Box1";
 import Box2 from "../../components/BoxNews/Box2";
 
+// Img
+import gifLoading from "../../assets/img/loading.gif";
+
 // Interface
 interface NewsItem {
   id: string;
@@ -63,44 +66,55 @@ export default function Home() {
     fetchData()
   }, [])
 
+    // Seletor de noticias
     const firstNews = newsData?.slice(0, 2) || [];
     const moreNews = newsData?.slice(2) || [];
 
     return(
         <Main>
           <Container>
-            <article className="article-header">
+            {newsData ? (
+              <>
+                <article className="article-header">
 
-              {firstNews?.map((item, index) => (
-                  <Box1
+                {firstNews?.map((item, index) => (
+                    <Box1
+                      key={index}
+                      id={item.id}
+                      url_img={item.url_img}
+                      title={item.title}
+                      category={item.category_news_name}
+                      date={new Intl.DateTimeFormat('pt-BR', options).format(new Date(item.created_at))}
+                      author={item.author}
+                    />
+                ))}
+                </article>
+
+                <article className="grid-content">
+                <div>
+                  <h1>Mais Recentes</h1>
+                </div>
+
+                {moreNews?.map((item, index) => (
+                  <Box2
                     key={index}
                     id={item.id}
-                    url_img={item.url_img}
+                    img={item.url_img}
                     title={item.title}
                     category={item.category_news_name}
-                    date={new Intl.DateTimeFormat('pt-BR', options).format(new Date(item.created_at))}
+                    date={item.date}
                     author={item.author}
                   />
-              ))}
-            </article>
-
-            <article className="grid-content">
-              <div>
-                <h1>Mais Recentes</h1>
-              </div>
-
-              {moreNews?.map((item, index) => (
-                <Box2
-                  key={index}
-                  id={item.id}
-                  img={item.url_img}
-                  title={item.title}
-                  category={item.category_news_name}
-                  date={item.date}
-                  author={item.author}
-                />
-              ))}
-            </article>
+                ))}
+                </article>
+              </>
+            ): (
+              <>
+                <div className="loading">
+                  <img src={gifLoading} alt="Icone de carregamento da pagina" />
+                </div>
+              </>
+            )}
           </Container>
         </Main>
     )

@@ -1,6 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  .loading {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      margin: 0 auto;
+      width: 70px;
+      height: 70px;
+    }
+  }
+
   .title-tag {
     height: 128px;
     background-color: ${({ theme }) => theme.categoryColors["primary-background-color"]};

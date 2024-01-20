@@ -4,6 +4,19 @@ export const Container = styled.div`
   margin-top: 35px;
   padding: 0 10px;
 
+  .loading {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      margin: 0 auto;
+      width: 70px;
+      height: 70px;
+    }
+  }
+
   .article-header {
     width: 100%;
     max-height: 340px;
