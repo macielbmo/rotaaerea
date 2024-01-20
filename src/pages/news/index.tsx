@@ -115,7 +115,9 @@ export default function News() {
   const urlPage = window.location.href;
 
   // Formatar data
-  const dateFormated = format(Date(newsData?.created_at), 'dd/MM/yyyy')
+  const dateFormated = newsData?.created_at
+  ? format(new Date(newsData.created_at), 'dd/MM/yyyy')
+  : '';
 
   return(
     <Container>
