@@ -118,8 +118,8 @@ export const Container = styled.div`
   }
 
   @media (max-width: 768px) {
-    .title {
-      font-size: 24px;
+    .header .title {
+      font-size: 34px;
     }
 
     .sub-title {
@@ -148,6 +148,10 @@ export const Container = styled.div`
     .ql-video {
       width: 80%;
       height: 180px;
+    }
+
+    .header .title {
+      font-size: 28px;
     }
   }
 `
