@@ -10,7 +10,6 @@ import { Container } from "./style";
 
 export default function Share() {
   const urlAtual = window.location.href;
-  console.log('URL do site:', urlAtual);
 
   return(
     <Container>

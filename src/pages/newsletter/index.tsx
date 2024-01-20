@@ -32,7 +32,7 @@ export default function Newsletter() {
     setMessageError("")
 
     try {
-      const url = "http://localhost:3001";
+      const url = "https://rotaaerea-backend.vercel.app";
 
       const response = await fetch(`${url}/newsletter`, {
         method: "POST",
